@@ -90,13 +90,13 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Guardar"
+                android:text="Borrar"
                 android:textSize="20sp"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Limpiar"
+                android:text="Actualizar"
                 android:textSize="20sp"/>
 
         </LinearLayout>
@@ -109,15 +109,9 @@
             android:padding="16dp">
 
             <Button
-                android:layout_width="120dp"
-                android:layout_height="match_parent"
-                android:text="Nuevo"
-                android:textSize="20sp" />
-
-            <Button
                 android:layout_width="119dp"
                 android:layout_height="match_parent"
-                android:text="Editar"
+                android:text="Cerrar"
                 android:textSize="20sp" />
 
         </LinearLayout>

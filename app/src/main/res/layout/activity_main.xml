@@ -14,6 +14,7 @@
 
 
         <EditText
+            android:id="@+id/etCodigo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -23,6 +24,7 @@
 
 
         <EditText
+            android:id="@+id/etNombreProducto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -32,6 +34,7 @@
             />
 
         <EditText
+            android:id="@+id/etMarca"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -41,6 +44,7 @@
             />
 
         <EditText
+            android:id="@+id/etPrecio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -50,16 +54,19 @@
             />
 
         <RadioGroup
+            android:id="@+id/radioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <RadioButton
+                android:id="@+id/rbPerecedero"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Perecedero"
                 android:textSize="20sp"/>
 
             <RadioButton
+                android:id="@+id/rbNoPerecedero"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="No Perecedero"
@@ -76,12 +83,14 @@
             android:padding="16dp">
 
             <Button
+                android:id="@+id/btnGuardar"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Guardar"
                 android:textSize="20sp"/>
 
             <Button
+                android:id="@+id/btnLimpiar"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Limpiar"
@@ -97,20 +106,20 @@
             android:padding="16dp">
 
             <Button
+                android:id="@+id/btnNuevo"
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:text="Nuevo"
                 android:textSize="20sp" />
 
             <Button
+                android:id="@+id/btnEditar"
                 android:layout_width="119dp"
                 android:layout_height="match_parent"
                 android:text="Editar"
                 android:textSize="20sp" />
 
         </LinearLayout>
-
-
 
 
     </LinearLayout>
