@@ -56,35 +56,57 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnLimpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                limpiarCampos();
+            }
+        });
+
+        btnNuevo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                limpiarCampos();
+            }
+        });
+
 
     }
 
     private void guardarProducto() {
-        // Obtener los valores ingresados por el usuario desde los campos de texto y radio buttons
-        String codigo = etCodigo.getText().toString().trim();
+        String codigoStr = etCodigo.getText().toString().trim();
         String nombreProducto = etNombre.getText().toString().trim();
         String marca = etMarca.getText().toString().trim();
-        String precio = etPrecio.getText().toString().trim();
+        String precioStr = etPrecio.getText().toString().trim();
         boolean esPerecedero = radioGroup.getCheckedRadioButtonId() == R.id.rbPerecedero;
 
-        if (!codigo.isEmpty() && !nombreProducto.isEmpty()) {
-            // Convertir a tipo numérico los valores que lo requieran (por ejemplo, el precio)
-            int codigo2 = Integer.parseInt(codigo);
-            double precio2 = Double.parseDouble(precio);
+        if (!codigoStr.isEmpty() && !nombreProducto.isEmpty()) {
+            try {
+                int codigo = Integer.parseInt(codigoStr);
 
-            // Crear un nuevo objeto Producto con los datos ingresados
-            Productos producto = new Productos();
-            producto.setCodigo(codigo2);
-            producto.setNombre(nombreProducto);
-            producto.setMarca(marca);
-            producto.setPrecio(precio2);
-            producto.setPerecedero(esPerecedero);
+                double precio = 0.0;
+                if (!precioStr.isEmpty()) {
+                    precio = Double.parseDouble(precioStr);
+                }
 
-            // Insertar o actualizar en la base de datos
-            guardarProductoEnBD(producto);
+                // Crear un nuevo objeto Producto con los datos ingresados
+                Productos producto = new Productos();
+                producto.setCodigo(codigo);
+                producto.setNombre(nombreProducto);
+                producto.setMarca(marca);
+                producto.setPrecio(precio);
+                producto.setPerecedero(esPerecedero);
 
-            // Limpiar los campos de texto después de guardar
-            limpiarCampos();
+                // Insertar o actualizar el producto en la base de datos
+                guardarProductoEnBD(producto);
+                dbHelper.agregarProducto(codigo, nombreProducto, marca, precio, esPerecedero);
+
+                Toast.makeText(this, "Producto guardado.", Toast.LENGTH_SHORT).show();
+
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                Toast.makeText(this, "Error al ingresar el código o el precio.", Toast.LENGTH_SHORT).show();
+            }
         } else {
             Toast.makeText(this, "El código y el nombre del producto son requeridos.", Toast.LENGTH_SHORT).show();
         }
